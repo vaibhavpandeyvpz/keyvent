@@ -41,13 +41,18 @@ namespace Keyvent
 
         private IntPtr HookID = IntPtr.Zero;
 
+        private LowLevelKeyboardProc HookCallbackDelegate;
+
         public KeyventHook()
         {
             using (var process = Process.GetCurrentProcess())
             {
                 using (var module = process.MainModule)
                 {
-                    HookID = SetWindowsHookEx(WH_KEYBOARD_LL, HookCallback, GetModuleHandle(module.ModuleName), 0);
+                    HookID = SetWindowsHookEx(
+                        WH_KEYBOARD_LL,
+                        HookCallbackDelegate = new LowLevelKeyboardProc(HookCallback),
+                        GetModuleHandle(module.ModuleName), 0);
                 }
             }
         }

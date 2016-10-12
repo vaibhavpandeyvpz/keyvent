@@ -13,6 +13,22 @@ namespace Keyvent
 
         private DateTime LastUpdate;
 
+        private static ICollection<Keys> InterceptKeys = new Keys[] {
+            // Alphabets
+            Keys.A, Keys.B, Keys.C, Keys.D, Keys.E, Keys.F,
+            Keys.G, Keys.H, Keys.I, Keys.K, Keys.L, Keys.M,
+            Keys.N, Keys.O, Keys.P, Keys.Q, Keys.R, Keys.S,
+            Keys.T, Keys.U, Keys.W, Keys.X, Keys.Y, Keys.Z,
+            // Function
+            Keys.F1, Keys.F2, Keys.F3, Keys.F4, Keys.F5, Keys.F6,
+            Keys.F7, Keys.F8, Keys.F9, Keys.F10, Keys.F11, Keys.F12,
+            // Special
+            Keys.Enter, Keys.Escape, Keys.Space, Keys.Tab, Keys.Back,
+            // Numbers
+            Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6,
+            Keys.D7, Keys.D8, Keys.D9, Keys.D0,
+        };
+
         public KeyventForm()
         {
             InitializeComponent();
@@ -33,7 +49,7 @@ namespace Keyvent
                 if (e.StateShift) keys.Add(Keys.Shift);
                 if (e.StateAlt) keys.Add(Keys.Menu);
                 if (e.StateWindows) keys.Add(Keys.LWin);
-                if (keys.Count >= 1)
+                if ((keys.Count >= 1) && InterceptKeys.Contains(key))
                 {
                     keys.Add(key);
                     LastUpdate = DateTime.Now;
@@ -100,11 +116,6 @@ namespace Keyvent
                 case Keys.F10:
                 case Keys.F11:
                 case Keys.F12:
-                // Arrow
-                case Keys.Down:
-                case Keys.Left:
-                case Keys.Right:
-                case Keys.Up:
                 // Special
                 case Keys.Enter:
                 case Keys.Escape:
