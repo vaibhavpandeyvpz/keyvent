@@ -18,15 +18,18 @@ namespace Keyvent
             Keys.A, Keys.B, Keys.C, Keys.D, Keys.E, Keys.F,
             Keys.G, Keys.H, Keys.I, Keys.K, Keys.L, Keys.M,
             Keys.N, Keys.O, Keys.P, Keys.Q, Keys.R, Keys.S,
-            Keys.T, Keys.U, Keys.W, Keys.X, Keys.Y, Keys.Z,
+            Keys.T, Keys.U, Keys.V, Keys.W, Keys.X, Keys.Y,
+            Keys.Z,
+            // Numbers
+            Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6,
+            Keys.D7, Keys.D8, Keys.D9, Keys.D0,
             // Function
             Keys.F1, Keys.F2, Keys.F3, Keys.F4, Keys.F5, Keys.F6,
             Keys.F7, Keys.F8, Keys.F9, Keys.F10, Keys.F11, Keys.F12,
             // Special
             Keys.Enter, Keys.Escape, Keys.Space, Keys.Tab, Keys.Back,
-            // Numbers
-            Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6,
-            Keys.D7, Keys.D8, Keys.D9, Keys.D0,
+            // Arrow
+            Keys.Up, Keys.Right, Keys.Down, Keys.Left,
         };
 
         public KeyventForm()
@@ -99,31 +102,12 @@ namespace Keyvent
                 case Keys.S:
                 case Keys.T:
                 case Keys.U:
+                case Keys.V:
                 case Keys.W:
                 case Keys.X:
                 case Keys.Y:
                 case Keys.Z:
-                // Function
-                case Keys.F1:
-                case Keys.F2:
-                case Keys.F3:
-                case Keys.F4:
-                case Keys.F5:
-                case Keys.F6:
-                case Keys.F7:
-                case Keys.F8:
-                case Keys.F9:
-                case Keys.F10:
-                case Keys.F11:
-                case Keys.F12:
-                // Special
-                case Keys.Enter:
-                case Keys.Escape:
-                case Keys.Space:
-                case Keys.Tab:
                     return key.ToString();
-                case Keys.Back:
-                    return "Back Space";
                 // Numbers
                 case Keys.D1:
                     return "1";
@@ -154,6 +138,32 @@ namespace Keyvent
                     return "Win";
                 case Keys.Shift:
                     return "Shift";
+                // Function
+                case Keys.F1:
+                case Keys.F2:
+                case Keys.F3:
+                case Keys.F4:
+                case Keys.F5:
+                case Keys.F6:
+                case Keys.F7:
+                case Keys.F8:
+                case Keys.F9:
+                case Keys.F10:
+                case Keys.F11:
+                case Keys.F12:
+                // Arrow
+                case Keys.Up:
+                case Keys.Right:
+                case Keys.Down:
+                case Keys.Left:
+                // Special
+                case Keys.Enter:
+                case Keys.Escape:
+                case Keys.Space:
+                case Keys.Tab:
+                    return key.ToString();
+                case Keys.Back:
+                    return "Backspace";
                 default:
                     return null;
             }
